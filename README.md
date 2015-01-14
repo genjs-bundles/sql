@@ -1,2 +1,2 @@
-# sql-postgresql
-GenJS - SQL generator for PostgreSQL
+# GenJS - SQL generator for PostgreSQL
+
