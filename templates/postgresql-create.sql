@@ -1,4 +1,4 @@
-<% entities.forEach(function(entity) { %>
+<% each(entities, function(entity) { %>
 <%
     var keyAttributes = by(entity.attributes,"isPK","true");
     var notKeyAttributes = byNot(entity.attributes,"isPK","true");
@@ -6,11 +6,11 @@
 %>
 -- <%=entity.name %>
 CREATE TABLE <%=entity.sqlTable%> {
-  <% keyAttributes.forEach(function(attr) { %>
+  <% each(keyAttributes, function(attr) { %>
     <% if(isFirst){isFirst=false;}else{%>,<%}%>
     <%=attr.sqlName%> <%=attr.sqlType%><%if(attr.size != null){%>(<%=attr.size%>)<%}%><% if(keyAttributes.length == 1){ %> CONSTRAINT PK_<%=entity.sqlTable%> PRIMARY KEY<% } %>
   <% }) %>
-  <% notKeyAttributes.forEach(function(attr) { %>
+  <% each(notKeyAttributes, function(attr) { %>
     <% if(isFirst){isFirst=false;}else{%>,<%}%>
     <%=attr.sqlName%> <%=attr.sqlType%><%if(attr.size != null){%>(<%=attr.size%>)<%}%><%if(attr.isNotNull=="true"){%> NOT NULL<%}%>
   <% }) %>
