@@ -5,7 +5,7 @@
     var isFirst = true;
 %>
 -- <%=entity.name %>
-CREATE TABLE <%=entity.sqlTable%> {
+CREATE TABLE <%= (entity.sqlTable != null) ? entity.sqlTable : entity.name.a() %> {
   <% each(keyAttributes, function(attr) { %>
     <% if(isFirst){isFirst=false;}else{%>,<%}%>
     <%=attr.sqlName%> <%=attr.sqlType%><%if(attr.size != null){%>(<%=attr.size%>)<%}%><% if(keyAttributes.length == 1){ %> CONSTRAINT PK_<%=entity.sqlTable%> PRIMARY KEY<% } %>
