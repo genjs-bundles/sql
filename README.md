@@ -14,3 +14,27 @@ var entities = {
 
 module.exports=entities;
 ```
+
+to generate these SQL files :
+* mysql :
+```
+-- mysql
+
+-- book
+CREATE TABLE book (
+    id bigint,
+    title varchar(),
+    sells integer
+);
+```
+* postgresql :
+```
+-- postgresql
+
+-- book
+CREATE TABLE book (
+    id numeric,
+    title varchar(),
+    sells integer
+);
+```
